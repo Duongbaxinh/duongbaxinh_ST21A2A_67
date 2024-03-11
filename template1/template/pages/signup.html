@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {%load static%} <link rel="stylesheet" href={% static 'css/login.css' %} />
+    <title>HASH TECHIE OFFICIAL</title>
+  </head>
+  <body>
+    <section>
+      <div class="form-box">
+        <div class="form-value">
+          <form method="post" action="/signup">
+            {% csrf_token %}
+            <h2>Register</h2>
+
+            <div class="inputbox">
+              <ion-icon name="mail-outline"></ion-icon>
+              <input type="text" name="username" required />
+              <label for="">Username</label>
+            </div>
+
+            <div class="inputbox">
+              <ion-icon name="mail-outline"></ion-icon>
+              <input type="email" name="email" required />
+              <label for="">Email</label>
+            </div>
+
+            <div class="inputbox">
+              <ion-icon name="mail-outline"></ion-icon>
+              <input type="text" name="firstname" required />
+              <label for="">Firstname</label>
+            </div>
+
+            <div class="inputbox">
+              <ion-icon name="mail-outline"></ion-icon>
+              <input type="text" name="lastname" required />
+              <label for="">Lastname</label>
+            </div>
+
+            <div class="inputbox">
+              <ion-icon name="mail-outline"></ion-icon>
+              <input type="password" name="password" required />
+              <label for="">Password</label>
+            </div>
+
+            <div class="inputbox">
+              <ion-icon name="mail-outline"></ion-icon>
+              <input type="text" name="confirm_password" required />
+              <label for="">Confirm password</label>
+            </div>
+
+            <button type="submit">Register</button>
+            <div class="register">
+              <p>Have a account <a href="/login">Login</a></p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
+</html>

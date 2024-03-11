@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% load static %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Music player</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+      integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href={% static 'css/music.css' %}>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <div class="player">
+    <!-- Dashboard -->
+    <div class="dashboard">
+      <!-- Header -->
+      <header>
+        <h4>Now playing:</h4>
+        <h2>{{ musics.0.name}}</h2>
+      </header>
+
+      <!-- CD -->
+      {% if musics %}
+      <div class="cd">
+        <div
+          class="cd-thumb"
+          style="background-image: url('{{ musics.0.thumbnail.url }}');"
+        ></div>
+      </div>
+      {% else %}
+      <p>No music data found.</p>
+      {% endif %} {% comment %}
+      <input
+        id="progress"
+        class="progress"
+        type="range"
+        value="0"
+        step="1"
+        min="0"
+        max="100"
+      />
+      {% endcomment %}
+      <div class="audio">
+        {% if musics %}
+        <audio id="audio" controls>
+          <source src="{{ musics.0.musicfile.url }}" type="audio/mpeg" />
+        </audio>
+        <a href="{{ musics.0.musicfile.url }}" download="song.mp3"
+          >Download Song</a
+        >
+        {% else %}
+        <p>No music data found.</p>
+        {% endif %}
+      </div>
+    </div>
+
+    <!-- Playlist -->
+    <div class="playlist">
+      <div class="song">
+        <div
+          class="thumb"
+          style="
+            background-image: url('https://i.ytimg.com/vi/jTLhQf5KJSc/maxresdefault.jpg');
+          "
+        ></div>
+        <div class="body">
+          <h3 class="title">Music name</h3>
+          <p class="author">Singer</p>
+        </div>
+        <div class="option">
+          <i class="fas fa-ellipsis-h"></i>
+        </div>
+      </div>
+      <div class="song">
+        <div
+          class="thumb"
+          style="
+            background-image: url('https://i.ytimg.com/vi/jTLhQf5KJSc/maxresdefault.jpg');
+          "
+        ></div>
+        <div class="body">
+          <h3 class="title">Music name</h3>
+          <p class="author">Singer</p>
+        </div>
+        <div class="option">
+          <i class="fas fa-ellipsis-h"></i>
+        </div>
+      </div>
+      <div class="song">
+        <div
+          class="thumb"
+          style="
+            background-image: url('https://i.ytimg.com/vi/jTLhQf5KJSc/maxresdefault.jpg');
+          "
+        ></div>
+        <div class="body">
+          <h3 class="title">Music name</h3>
+          <p class="author">Singer</p>
+        </div>
+        <div class="option">
+          <i class="fas fa-ellipsis-h"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Design from: https://static.collectui.com/shots/3671744/musicloud-revolutionary-app-for-music-streaming-large -->
+</html>
